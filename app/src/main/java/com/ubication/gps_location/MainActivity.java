@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         NumeroCelular = findViewById(R.id.editTextTextPersonName);
         Obtenercoordenadas = (TextView)findViewById(R.id.tvUbicacion);
         boton_GPS = (Button)findViewById(R.id.button);
-        b0ton_Enviar = findViewById(R.id.button2);
+        boton_Enviar = findViewById(R.id.button2);
 
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
