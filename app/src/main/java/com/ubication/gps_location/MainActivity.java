@@ -20,10 +20,10 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText etCel;
-    Button btnGPS;
-    TextView tvUbicacion;
-    Button btnEnviar;
+    EditText NumeroCelular;
+    Button boton_GPS;
+    TextView Obtenercoordenadas;
+    Button boton_Enviar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +32,10 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true); //Para mostrar el ícono de la app en el action Bar
         getSupportActionBar().setIcon(R.mipmap.ic_launcher);
 
-        etCel = findViewById(R.id.editTextTextPersonName);
-        tvUbicacion = (TextView)findViewById(R.id.tvUbicacion);
-        btnGPS = (Button)findViewById(R.id.button);
-        btnEnviar = findViewById(R.id.button2);
+        NumeroCelular = findViewById(R.id.editTextTextPersonName);
+        Obtenercoordenadas = (TextView)findViewById(R.id.tvUbicacion);
+        boton_GPS = (Button)findViewById(R.id.button);
+        b0ton_Enviar = findViewById(R.id.button2);
 
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 // Register the listener with the Location Manager to receive location updates
                 int permissionCheck = ContextCompat.checkSelfPermission(MainActivity.this,
                         Manifest.permission.ACCESS_FINE_LOCATION);
-                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener); //Network provider es método de localización que utilizan el wifi, las redes móviles, etc
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener); //GPS provider es un método de localización que utiliza Android Studio.
             }
         });
 
