@@ -53,13 +53,12 @@ public class MainActivity extends AppCompatActivity {
         btnGPS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Acquire a reference to the system Location Manager
                 LocationManager locationManager = (LocationManager) MainActivity.this.getSystemService(Context.LOCATION_SERVICE);
 
-// Define a listener that responds to location updates
+
                 LocationListener locationListener = new LocationListener() {
                     public void onLocationChanged(Location location) {
-                        // Called when a new location is found by the network location provider.
+                        
                         tvUbicacion.setText(""+location.getLatitude()+"   "+location.getLongitude());
 
                     }
@@ -71,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onProviderDisabled(String provider) {}
                 };
 
-// Register the listener with the Location Manager to receive location updates
+
                 int permissionCheck = ContextCompat.checkSelfPermission(MainActivity.this,
                         Manifest.permission.ACCESS_FINE_LOCATION);
                 locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener); //GPS provider es un método de localización que utiliza Android Studio.
@@ -84,15 +83,10 @@ public class MainActivity extends AppCompatActivity {
         if(permissionCheck== PackageManager.PERMISSION_DENIED) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.ACCESS_FINE_LOCATION)) {
-
-                // Show an explanation to the user asynchronously -- don't block
-                // this thread waiting for the user's response! After the user
-                // sees the explanation, try again to request the permission.
-
+                
             } else {
 
-                // No explanation needed, we can request the permission.
-
+               
                 ActivityCompat.requestPermissions(this,
                         new String[] {Manifest.permission.ACCESS_FINE_LOCATION},
                         1);
