@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 LocationListener locationListener = new LocationListener() {
                     public void onLocationChanged(Location location) {
                         
-                        tvUbicacion.setText(""+location.getLatitude()+"   "+location.getLongitude());
+                        Obtenercoordenadas.setText(""+location.getLatitude()+"   "+location.getLongitude());
 
                     }
 
