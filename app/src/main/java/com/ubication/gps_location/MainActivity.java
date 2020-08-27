@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 SmsManager smsManager = SmsManager.getDefault();
-                smsManager.sendTextMessage(etCel.getText().toString(), null, tvUbicacion.getText().toString(), null, null);
+                smsManager.sendTextMessage(NumeroCelular.getText().toString(), null, Obtenercoordenadas.getText().toString(), null, null);
             }
         });
 
