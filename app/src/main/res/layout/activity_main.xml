@@ -71,4 +71,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
+    <TextView
+        android:id="@+id/texthora"
+        android:layout_width="104dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="15dp"
+        android:text="Obtener hora"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.857"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texttime" />
+
+    <TextView
+        android:id="@+id/texttime"
+        android:layout_width="102dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="40dp"
+        android:text="Obtener fecha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.842"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvUbicacion" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
