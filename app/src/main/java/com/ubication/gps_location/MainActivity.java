@@ -17,6 +17,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     Button boton_GPS;
     TextView Obtenercoordenadas;
     Button boton_Enviar;
+    TextView Obtenertiempo;
+    TextView Obtenerhora;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +40,16 @@ public class MainActivity extends AppCompatActivity {
         Obtenercoordenadas = (TextView)findViewById(R.id.tvUbicacion);
         boton_GPS = (Button)findViewById(R.id.button);
         boton_Enviar = findViewById(R.id.button2);
+        Obtenertiempo = (TextView) findViewById(R.id.texttime);
+        Obtenerhora = (TextView) findViewById(R.id.texthora);
 
-        btnEnviar.setOnClickListener(new View.OnClickListener() {
+        boton_Enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SmsManager smsManager = SmsManager.getDefault();
-                smsManager.sendTextMessage(etCel.getText().toString(), null, tvUbicacion.getText().toString(), null, null);
+                smsManager.sendTextMessage(NumeroCelular.getText().toString(), null, Obtenercoordenadas.getText().toString(), null, null);
+                smsManager.sendTextMessage(NumeroCelular.getText().toString(), null, Obtenertiempo.getText().toString(),null, null);
+                smsManager.sendTextMessage(NumeroCelular.getText().toString(), null, Obtenerhora.getText().toString(),null, null);
             }
         });
 
@@ -50,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.SEND_SMS}, 1);
         }
 
-        btnGPS.setOnClickListener(new View.OnClickListener() {
+        boton_GPS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 LocationManager locationManager = (LocationManager) MainActivity.this.getSystemService(Context.LOCATION_SERVICE);
@@ -60,6 +68,16 @@ public class MainActivity extends AppCompatActivity {
                     public void onLocationChanged(Location location) {
                         
                         Obtenercoordenadas.setText(""+location.getLatitude()+"   "+location.getLongitude());
+                        Calendar tiempo = Calendar.getInstance();
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+                        String dataTime = simpleDateFormat.format(tiempo.getTime());
+                        Obtenerhora.setText(dataTime);
+
+                        Obtenercoordenadas.setText(""+location.getLatitude()+"   "+location.getLongitude());
+                        Calendar fecha = Calendar.getInstance();
+                        SimpleDateFormat simpleDate = new SimpleDateFormat("dd-MMM-yyyy");
+                        String dataDate = simpleDate.format(fecha.getTime());
+                        Obtenertiempo.setText(dataDate);
 
                     }
 
