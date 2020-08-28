@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import java.util.Calendar;
+import java.text.SimpleDateFormat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         Obtenertiempo = (TextView) findViewById(R.id.texttime);
         Obtenerhora = (TextView) findViewById(R.id.texthora);
 
-        btnEnviar.setOnClickListener(new View.OnClickListener() {
+        boton_Enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SmsManager smsManager = SmsManager.getDefault();
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.SEND_SMS}, 1);
         }
 
-        btnGPS.setOnClickListener(new View.OnClickListener() {
+        boton_GPS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 LocationManager locationManager = (LocationManager) MainActivity.this.getSystemService(Context.LOCATION_SERVICE);
