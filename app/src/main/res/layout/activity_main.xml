@@ -93,4 +93,32 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvUbicacion" />
 
+     <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="La Fecha Actual Es:"
+        android:textColor="#100D0D"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toStartOf="@+id/texttime"
+        app:layout_constraintHorizontal_bias="0.808"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvUbicacion" />
+
+     <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="La Hora Actual Es:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#131010"
+        android:textIsSelectable="false"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toStartOf="@+id/texthora"
+        app:layout_constraintHorizontal_bias="0.802"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
